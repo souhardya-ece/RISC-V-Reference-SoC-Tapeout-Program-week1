@@ -17,6 +17,8 @@ Now Design and test bench is fed into the iverilog simulator that generates a .v
 
 First in ubuntu terminal do as follows
 
+### (i) Setup
+
 ```
 mkdir VLSI
 cd VLSI
@@ -27,14 +29,15 @@ git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
 
 Now inside the VLSI diectory there are two files one is vsdflow and the another one is sky130RTLDesignAndSynthesisWorkshop inside this dir there are three files which are lib(which include the standared cell libery),my_lib(standared cell model),verilog_files(.v files along with its test bench)
 
+### (ii) To run the iverilog and the Gtkwave
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
 cd verilog_files
-iverilog good_mux.v tb_good_mux.v // a.out is crested
+iverilog good_mux.v tb_good_mux.v // a.out is created
 ./a.out //execute this and the vcd file is generated
 gtkwave tb_good_mux.vcd
-gvim tb_good_mux.v -o good_mux.v ///
+gvim tb_good_mux.v -o good_mux.v // to see the file
 ```
 
 ### Introduction to yosys
