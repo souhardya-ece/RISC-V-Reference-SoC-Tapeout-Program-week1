@@ -42,3 +42,15 @@ gvim tb_good_mux.v -o good_mux.v // to see the file
 
 ### Introduction to yosys
 
+Synthesizer is a tool converting the RTL to netlist(consists of gates,standared cell) Example Yosys.We fed the Design and the .lib file to the yosys it will generate a netlist file. To verify my synthesis we fed the the netlist(have the same primary i/p and o/p as the design ) and the test bench(Which is same as the previous one) to the simulator that will generate a .vcd file that is fed into the gtkwave then match the bothoutput wavefrom.
+
+RTL design is the behavioral representation of the spec.synthesis is the RTL to gate level transition(gates and the connection between the gates) this file is called netlist.
+
+.lib is the collection of gates (and ,or,not,2 i/p,3 i/p,4i/p,slow ,medium, fast)
+
+Now suppose I have this setup so the min of T_clk>=T_A+T_Comb+T_B .so in order to get the faster response(required performance) T should be small (set up time) => max frequency so we need faster cell.To check that there is no hold issues we need the slower cell(T_hold<T_A+T_comb).
+
+In digital circuit load can be treated as capacitance. faster the charging discharging lesser the delay so the tr is capable of sourcing more current => Wide transistor.
+Wide tr=> less delay,more area and power consuption.
+Narrow tr=> More delay,less area and power consuption.so it should be optimum.
+So there is some constraints.
