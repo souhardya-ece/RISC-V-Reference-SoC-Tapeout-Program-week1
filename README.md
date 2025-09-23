@@ -11,7 +11,11 @@ Design is the verilog code that has the intended to meet the required functional
 
 Test bench is also a verilog code that is stimulus to the design to check the fuctionality.Now the test bench consists of three parts stimulus generator(input),design,stimulus observer(output).Test bench does not have any primary input and output.
 
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/Test%20Bench.png)
+
 Now Design and test bench is fed into the iverilog simulator that generates a .vcd file(value change dump) to check the functionality of the design wavefrom we use gtkwave.
+
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/Simulation%20flow.png)
 
 ### Labs using iverilog and gtkwave
 
@@ -40,15 +44,29 @@ gtkwave tb_good_mux.vcd
 gvim tb_good_mux.v -o good_mux.v // to see the file
 ```
 
+### Output 
+
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/good_mux.png)
+
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/good_mux_tb.png)
+
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/GTKWave.png)
+
 ### Introduction to yosys and logic synthesis
 
 Synthesizer is a tool converting the RTL to netlist(consists of gates,standared cell) Example Yosys.We fed the Design and the .lib file to the yosys it will generate a netlist file. To verify my synthesis we fed the the netlist(have the same primary i/p and o/p as the design ) and the test bench(Which is same as the previous one) to the simulator that will generate a .vcd file that is fed into the gtkwave then match the bothoutput wavefrom.
+
+![image alt](http://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/Yosys%20setup.png)
+
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/Verify%20synthesis.png)
 
 RTL design is the behavioral representation of the spec.synthesis is the RTL to gate level transition(gates and the connection between the gates) this file is called netlist.
 
 .lib is the collection of gates (and ,or,not,2 i/p,3 i/p,4i/p,slow ,medium, fast)
 
 Now suppose I have this setup so the min of T_clk>=T_A+T_Comb+T_B .so in order to get the faster response(required performance) T should be small (set up time) => max frequency so we need faster cell.To check that there is no hold issues we need the slower cell(T_hold<T_A+T_comb).
+
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/Set%20up%20and%20hold.png)
 
 In digital circuit load can be treated as capacitance. faster the charging discharging lesser the delay so the tr is capable of sourcing more current => Wide transistor.
 Wide tr=> less delay,more area and power consuption.
@@ -70,4 +88,13 @@ show
 write_verilog -noattr good_mux_netlist.v
 !gvim good_mux_netlist.v
 ```
+
+### Output
+
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/Netlist.png)
+
+
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/Netlist%20code.png)
+
+
 
