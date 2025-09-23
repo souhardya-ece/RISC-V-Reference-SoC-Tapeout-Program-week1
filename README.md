@@ -40,7 +40,7 @@ gtkwave tb_good_mux.vcd
 gvim tb_good_mux.v -o good_mux.v // to see the file
 ```
 
-### Introduction to yosys
+### Introduction to yosys and logic synthesis
 
 Synthesizer is a tool converting the RTL to netlist(consists of gates,standared cell) Example Yosys.We fed the Design and the .lib file to the yosys it will generate a netlist file. To verify my synthesis we fed the the netlist(have the same primary i/p and o/p as the design ) and the test bench(Which is same as the previous one) to the simulator that will generate a .vcd file that is fed into the gtkwave then match the bothoutput wavefrom.
 
@@ -54,3 +54,20 @@ In digital circuit load can be treated as capacitance. faster the charging disch
 Wide tr=> less delay,more area and power consuption.
 Narrow tr=> More delay,less area and power consuption.so it should be optimum.
 So there is some constraints.
+
+### lab using Yosys
+
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog good_mux.v
+synth -top good_mux //module name
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib //generate the netlist
+show
+write_verilog -noattr good_mux_netlist.v
+!gvim good_mux_netlist.v
+```
+
