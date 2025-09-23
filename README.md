@@ -96,5 +96,26 @@ write_verilog -noattr good_mux_netlist.v
 
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/Netlist%20code.png)
 
+## Day 2
+
+### Introduction  to timing .lib
+
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+gvim ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+sky130_fd_sc_hd__tt_025C_1v80 :- 130 refers to the nm tech, tt stand for typical, 025C is the temerature and 1v80 is the voltage. there is a term called PVT(process-variation due to fabrication,voltage,temperature)
+
+.lib  file contain all the information like the technology(cmos),delay model(look up table), unit of power,current,resistence,capacitance,operating condition. there are different types gates in this file.
+
+a2111o=> x=((A1 & A2) | B1 | C1 | D1) for all 32 bit combination what is the power required is already given.
+
+The area of and_2_0 < and_2_2 < and_2_4 ;
+The power of and_2_0 < and_2_2 < and_2_4 ;
+The delay of and_2_0 > and_2_2 > and_2_4 ;
+
+
 
 
