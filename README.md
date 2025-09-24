@@ -424,6 +424,16 @@ show
 ### Output
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/counter_opt2_synth.png)
 
+## Day4
+
+### Gate level simulation & synthesis
+to verify and also the timing requirement is met(delay annotation) of the netlist we invoke the netlist and the test bench to the simulator.
+Now in case of GLS using iverilog we fed the netlist,gate level verilog model(what is the meaning of and or that we tell to the simulator),test bench to the simulator. it will generate a .vcd file then we move to the gtkwave.
+Gate level model have two type one is timing aware(functional+time) and the another one is functonal.
+
+
+
+
 
 
 
