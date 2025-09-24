@@ -97,6 +97,7 @@ write_verilog -noattr good_mux_netlist.v
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/Netlist%20code.png)
 
 ## Day 2
+![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()
 
 ### Introduction  to timing .lib
 
@@ -106,6 +107,8 @@ cd sky130RTLDesignAndSynthesisWorkshop
 cd verilog_files
 gvim ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/Lib.png)
 sky130_fd_sc_hd__tt_025C_1v80 :- 130 refers to the nm tech, tt stand for typical, 025C is the temerature and 1v80 is the voltage. there is a term called PVT(process-variation due to fabrication,voltage,temperature)
 
 .lib  file contain all the information like the technology(cmos),delay model(look up table), unit of power,current,resistence,capacitance,operating condition. there are different types gates in this file.
@@ -131,6 +134,10 @@ show multiple_modules
 write_verilog -noattr multiple_modules_hire.v
 !gvim multiple_modules_hire.v
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/Multiple%20Modules.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/Hire_Synth.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/Hire_Netlist.png)
 when a top level module inside this module there are some other module when we synthesis the top level module it is called hierarchical design (hierarchi are preserved) In nand design we ovserved stacked nmos but in the or design we ovserved stacked pmos which is bad as it have the poor mobility.
 
 ### Flat Synthesis
@@ -150,6 +157,10 @@ write_verilog -noattr multiple_modules_flat.v
 !gvim multiple_modules_flat.v
 exit
 ```
+### Output 
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/Flat_synth.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/Flat_Net.png)
+
 If we use the flatten command then do sunthesize the module we get a single netlist there is no hierarchi
 ### Sub module level sysnthesis
 ```
@@ -163,6 +174,8 @@ synth -top sub_module1 //***
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/Sub%20Module%20Synth.png)
 the need of sub module synthesis is that suppose there are multiple instantiation of that same module so we synthesis one time and copy that, and the another reason is that if tha design have very massive size so we synthesize part by part to get the clean netlist(D & C)
 
 ### FLIP FLOP
@@ -184,6 +197,12 @@ iverilog dff_syncres.v tb_dff_syncres.v
 ./a.out
  gtkwave tb_dff_syncres.vcd
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/async_reset.png)
+
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/async_set.png)
+
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/sync_reset.png)
 ### Using Yosys
 
 ```
@@ -208,6 +227,10 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/async_reset_synth.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/async_set_synth.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/sync_reset_synth.png)
 
 ### optimization
 
@@ -217,6 +240,8 @@ cd sky130RTLDesignAndSynthesisWorkshop
 cd verilog_files
 gvim mult_*.v -o
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/mult.png)
 if a is 3 bit sequence and if we do a*2 => at 4 bit o/p y we get {a,0}
 a*4={a,00}
 
@@ -237,9 +262,9 @@ there is no hardware required
 
 ### Output
 
-![image alt]()
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/a_2_synth.png)
 
-![image alt]()
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/a_2_net.png)
 
 if a is 3 bit sequence and if we do a*9 => at 5 bit o/p y we get {a,a}
 
@@ -258,9 +283,9 @@ write_verilog -noattr mult8_net.v
 ```
 ### Output
 
-![image alt]()
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/a_3_synth.png)
 
-![image alt]()
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/a_3_net.png)
 
 
 
