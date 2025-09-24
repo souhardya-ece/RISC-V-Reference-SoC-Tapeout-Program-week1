@@ -165,6 +165,30 @@ show
 ```
 the need of sub module synthesis is that suppose there are multiple instantiation of that same module so we synthesis one time and copy that, and the another reason is that if tha design have very massive size so we synthesize part by part to get the clean netlist(D & C)
 
+### FLIP FLOP
+In cobinational ckt due to propagation delay there is some glitch. so we want a element to store that(flip flop). so to overcome the glitch or to settle down the value we use flops. To initialize the flop we use reset/set(sync,async)
+
+Asynchronous reset mens irrspective of the clock we the async_reset goes high o/p is 0 and the poseedge come q<=d. And Asynchronous set mens irrspective of the clock we the async_set goes high o/p is 1 and the posedge come q<=d. Synchronous reset is when posegde of the clk come and sync_rest goes high then q= 0 else q follows d. 
+### Flip flop using iverilog and Gtkwave
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+iverilog dff_asyncres.v tb_dff_asyncres.v
+./a.out
+gtkwave  tb_dff_asyncres.vcd
+iverilog dff_async_set.v tb_dff_async_set.v
+./a.out
+gtkwave tb_dff_async_set.vcd
+iverilog dff_syncres.v tb_dff_syncres.v
+./a.out
+ gtkwave tb_dff_syncres.vcd
+```
+### Using Yosys
+
+```
+
+```
 
 
 
