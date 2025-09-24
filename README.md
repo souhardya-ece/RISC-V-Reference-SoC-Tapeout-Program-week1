@@ -286,6 +286,14 @@ write_verilog -noattr mult8_net.v
 
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/a_3_net.png)
 
+## Day3
+### Introduction to logic optimization
+combinatonal logic optimization is the squeez the logic to get the optimized design. Now this are of two types one is contant propagation or direct optimization(given some contant input) and the another one is boolean logic optimization using k-map or quine Mckluskey(minimization).
+
+In sequential Logic optimization they are of two types one is basic(sequential contant propagation:- q pin should give contant value) and the another one is advenced(state optimization:-optimize the unused state, retiming:-transfer the delay to improve the performance, sequential logic cloning(floorplan aware synthesis):-cloning a block to reduce the time)
+
+
+
 
 
 
