@@ -97,7 +97,6 @@ write_verilog -noattr good_mux_netlist.v
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day1/images/Netlist%20code.png)
 
 ## Day 2
-![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()![image alt]()
 
 ### Introduction  to timing .lib
 
