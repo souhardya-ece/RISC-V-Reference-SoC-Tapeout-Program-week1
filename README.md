@@ -116,6 +116,61 @@ The area of and_2_0 < and_2_2 < and_2_4 ;
 The power of and_2_0 < and_2_2 < and_2_4 ;
 The delay of and_2_0 > and_2_2 > and_2_4 ;
 
+### Hierarchical synthesis
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+gvim multiple_modules.v
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_modules.v
+synth -top multiple_modules
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show multiple_modules
+write_verilog -noattr multiple_modules_hire.v
+!gvim multiple_modules_hire.v
+```
+when a top level module inside this module there are some other module when we synthesis the top level module it is called hierarchical design (hierarchi are preserved) In nand design we ovserved stacked nmos but in the or design we ovserved stacked pmos which is bad as it have the poor mobility.
+
+### Flat Synthesis
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+gvim multiple_modules.v
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_modules.v
+synth -top multiple_modules
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+flatten
+show
+write_verilog -noattr multiple_modules_flat.v
+!gvim multiple_modules_flat.v
+exit
+```
+If we use the flatten command then do sunthesize the module we get a single netlist there is no hierarchi
+### Sub module level sysnthesis
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_modules.v
+synth -top sub_module1 //***
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+the need of sub module synthesis is that suppose there are multiple instantiation of that same module so we synthesis one time and copy that, and the another reason is that if tha design have very massive size so we synthesize part by part to get the clean netlist(D & C)
+
+
+
+
+
+
+
 
 
 
