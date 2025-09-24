@@ -187,7 +187,26 @@ iverilog dff_syncres.v tb_dff_syncres.v
 ### Using Yosys
 
 ```
-
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_asyncres.v
+synth -top dff_asyncres
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+read_verilog dff_async_set.v
+synth -top dff_async_set
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+read_verilog dff_syncres.v
+synth -top dff_syncres
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
 ```
 
 
