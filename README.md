@@ -309,6 +309,10 @@ opt_clean -purge
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/opt_check_synth.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/opt_check2_synth.png)
+
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -321,6 +325,10 @@ opt_clean -purge
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/opt_check3_synth.png)
+
+
 ### Sequential Logic optimization
 ### similator
 ```
@@ -335,6 +343,12 @@ iverilog dff_const2.v tb_dff_const2.v
 ./a.out
 gtkwave tb_dff_const2.vcd
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/dff_const.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/dff_const1.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/dff_const2.png)
+
+
 ### optimization
 ```
 cd VLSI
@@ -352,6 +366,10 @@ synth -top dff_const2
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/dff_const1_synth.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/dff_const2_synth.png)
+
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -367,6 +385,11 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/dff_const3.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/dff_const3_synth.png)
+
+
 ### Seq opt unused output
 ```
 cd VLSI
@@ -380,6 +403,9 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/counter_opt_synth.png)
+
 It is just toggling
 ```
 cd VLSI
@@ -395,6 +421,9 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/counter_opt2_synth.png)
+
 
 
 
