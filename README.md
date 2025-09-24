@@ -209,6 +209,51 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
 
+### optimization
+
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+gvim mult_*.v -o
+```
+if a is 3 bit sequence and if we do a*2 => at 4 bit o/p y we get {a,0}
+a*4={a,00}
+
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog mult_2.v
+synth -top mul2
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr mul2_net.v
+!gvim mul2_net.v
+```
+there is no hardware required
+if a is 3 bit sequence and if we do a*9 => at 5 bit o/p y we get {a,a}
+
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog mult_8.v
+synth -top mult8
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr mult8_net.v
+!gvim mult8_net.v
+```
+
+
+
+
+
 
 
 
