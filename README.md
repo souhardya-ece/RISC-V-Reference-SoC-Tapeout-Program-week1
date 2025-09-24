@@ -234,6 +234,13 @@ write_verilog -noattr mul2_net.v
 !gvim mul2_net.v
 ```
 there is no hardware required
+
+### Output
+
+![image alt]()
+
+![image alt]()
+
 if a is 3 bit sequence and if we do a*9 => at 5 bit o/p y we get {a,a}
 
 ```
@@ -249,6 +256,11 @@ show
 write_verilog -noattr mult8_net.v
 !gvim mult8_net.v
 ```
+### Output
+
+![image alt]()
+
+![image alt]()
 
 
 
