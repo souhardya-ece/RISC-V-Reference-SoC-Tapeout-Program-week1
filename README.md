@@ -451,6 +451,12 @@ iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd
 ./a.out
 gtkwave tb_ternary_operator_mux.vcd
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/Module.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/ter_op_w.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/ter_op_synth.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/ter_op_gls.png)
+
 
 ```
 cd VLSI
@@ -470,6 +476,10 @@ iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd
 ./a.out
 gtkwave tb_bad_mux.vcd
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/bad_mux_w.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/bad_mux_synth.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/bad_mux_gls.png)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -488,6 +498,10 @@ iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd
 ./a.out
 gtkwave tb_blocking_caveat.vcd
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/c_w.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/c_synth.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/C_gls.png)
 
 
 
