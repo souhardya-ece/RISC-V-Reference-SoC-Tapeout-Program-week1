@@ -33,7 +33,7 @@ git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
 
 Now inside the VLSI diectory there are two files one is vsdflow and the another one is sky130RTLDesignAndSynthesisWorkshop inside this dir there are three files which are lib(which include the standared cell libery),my_lib(standared cell model),verilog_files(.v files along with its test bench)
 
-### (ii) To run the iverilog and the Gtkwave
+### (ii) To run the iverilog and the Gtkwave (good_mux.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -73,7 +73,7 @@ Wide tr=> less delay,more area and power consuption.
 Narrow tr=> More delay,less area and power consuption.so it should be optimum.
 So there is some constraints.
 
-### lab using Yosys
+### lab using Yosys (good_mux.v)
 
 ```
 cd VLSI
@@ -118,7 +118,7 @@ The area of and_2_0 < and_2_2 < and_2_4 ;
 The power of and_2_0 < and_2_2 < and_2_4 ;
 The delay of and_2_0 > and_2_2 > and_2_4 ;
 
-### Hierarchical synthesis
+### Hierarchical synthesis (multiple_modules.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -139,7 +139,7 @@ write_verilog -noattr multiple_modules_hire.v
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/Hire_Netlist.png)
 when a top level module inside this module there are some other module when we synthesis the top level module it is called hierarchical design (hierarchi are preserved) In nand design we ovserved stacked nmos but in the or design we ovserved stacked pmos which is bad as it have the poor mobility.
 
-### Flat Synthesis
+### Flat Synthesis (multiple_modules.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -161,7 +161,7 @@ exit
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/Flat_Net.png)
 
 If we use the flatten command then do sunthesize the module we get a single netlist there is no hierarchi
-### Sub module level sysnthesis
+### Sub module level sysnthesis (multiple_modules.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -181,7 +181,7 @@ the need of sub module synthesis is that suppose there are multiple instantiatio
 In cobinational ckt due to propagation delay there is some glitch. so we want a element to store that(flip flop). so to overcome the glitch or to settle down the value we use flops. To initialize the flop we use reset/set(sync,async)
 
 Asynchronous reset mens irrspective of the clock we the async_reset goes high o/p is 0 and the poseedge come q<=d. And Asynchronous set mens irrspective of the clock we the async_set goes high o/p is 1 and the posedge come q<=d. Synchronous reset is when posegde of the clk come and sync_rest goes high then q= 0 else q follows d. 
-### Flip flop using iverilog and Gtkwave
+### Flip flop using iverilog and Gtkwave (dff_asyncres.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -202,7 +202,7 @@ iverilog dff_syncres.v tb_dff_syncres.v
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/async_set.png)
 
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/sync_reset.png)
-### Using Yosys
+### Using Yosys (dff_asyncres.v)
 
 ```
 cd VLSI
@@ -243,7 +243,7 @@ gvim mult_*.v -o
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/mult.png)
 if a is 3 bit sequence and if we do a*2 => at 4 bit o/p y we get {a,0}
 a*4={a,00}
-
+### Special case 1 (mult_2.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -266,7 +266,7 @@ there is no hardware required
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day2/Images/a_2_net.png)
 
 if a is 3 bit sequence and if we do a*9 => at 5 bit o/p y we get {a,a}
-
+### Special case 2 (mult_8.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -291,7 +291,7 @@ write_verilog -noattr mult8_net.v
 combinatonal logic optimization is the squeez the logic to get the optimized design. Now this are of two types one is contant propagation or direct optimization(given some contant input) and the another one is boolean logic optimization using k-map or quine Mckluskey(minimization).
 
 In sequential Logic optimization they are of two types one is basic(sequential contant propagation:- q pin should give contant value) and the another one is advenced(state optimization:-optimize the unused state, retiming:-transfer the delay to improve the performance, sequential logic cloning(floorplan aware synthesis):-cloning a block to reduce the time)
-### Combinational logic Optimizatio lab
+### Combinational logic Optimizatio lab1 (opt_check.v , opt_check2.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -312,7 +312,7 @@ show
 ### Output
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/opt_check_synth.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/opt_check2_synth.png)
-
+### Combinational logic Optimizatio lab2 (opt_check3.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -329,8 +329,8 @@ show
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/opt_check3_synth.png)
 
 
-### Sequential Logic optimization
-### similator
+### Sequential Logic optimization (dff_const1.v ,dff_const2.v)
+### simulator
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -349,7 +349,7 @@ gtkwave tb_dff_const2.vcd
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/dff_const2.png)
 
 
-### optimization
+### optimization 1 (dff_const2.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -369,7 +369,7 @@ show
 ### Output
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/dff_const1_synth.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/dff_const2_synth.png)
-
+### optimization 2 (dff_const3.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -390,7 +390,7 @@ show
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/dff_const3_synth.png)
 
 
-### Seq opt unused output
+### Seq opt unused output 1 (counter_opt.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -407,6 +407,7 @@ show
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day3/Images/counter_opt_synth.png)
 
 It is just toggling
+### Seq opt unused output 2 (counter_opt2.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -432,6 +433,7 @@ Now in case of GLS using iverilog we fed the netlist,gate level verilog model(wh
 Gate level model have two type one is timing aware(functional+time) and the another one is functonal.
 There are some reason at which synthesis simulation mismatch occur there are missing sensitivity list(use always@(*)),blk and non blk assignment(= <=),non standared verilog coding
 Do rtl coding carefully ow it have some mismatch.
+### GLS 1 (ternary_operator_mux.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -457,7 +459,7 @@ gtkwave tb_ternary_operator_mux.vcd
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/ter_op_synth.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/ter_op_gls.png)
 
-
+### GLS 2 (bad_mux.v )
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -480,6 +482,7 @@ gtkwave tb_bad_mux.vcd
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/bad_mux_w.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/bad_mux_synth.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/bad_mux_gls.png)
+### GLS 3 (blocking_caveat.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -507,7 +510,7 @@ gtkwave tb_blocking_caveat.vcd
 ### Optimization in synthesis
 if(only one portion can be execute) is priority logic(mux:-2:1). Bad coding will lead to a inferrd latch(incomplete if).In case statement(execute one or more can be true)(mux:-4:1) the variable in register type. In complete case also will lead to infarred latch(o/p connedted to i/p). use default.
 
-### If and Case Statement
+### If and Case Statement 1 (incomp_if.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -525,7 +528,7 @@ show
 ### Output
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/incomp_if_w.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/incomp_if_synth.png)
-
+### If and Case Statement 2 (incomp_if2.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -543,6 +546,7 @@ show
 ### Output
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/incomp_if2_w.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/incomp_if2_synth.png)
+### If and Case Statement 3 (incomp_case.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -560,6 +564,7 @@ show
 ### Output
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/incomp_case_w.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/incomp_case_synth.png)
+### If and Case Statement 4 (comp_case.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -577,6 +582,7 @@ show
 ### Output
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/comp_case_w.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/comp_case_synth.png)
+### If and Case Statement 5 (partial_case_assign.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -590,6 +596,7 @@ show
 ```
 ### Output
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/partial_case_assign_synth.png)
+### If and Case Statement 6 (bad_case.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -614,7 +621,7 @@ gtkwave tb_bad_case.vcd
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/bad_case_gls.png)
 ### Looping Construct
 There are two types of loop one is for loop(inside always,evaluating exp) and the another one is for or if generate loop(outside always,instantiating or replication of hw).you can write it for any no of mux & demux.
-
+### Loop 1 (mux_generate.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -634,6 +641,7 @@ show
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/mux_generate.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/mux_generate_w.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/mux_generate_synth.png)
+### Loop 2 (demux_case.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -651,6 +659,7 @@ show
 ### Output
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/demux_case_w.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/demux_case_synth.png)
+### Loop 3 (demux_generate.v)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -668,6 +677,7 @@ show
 ### Output
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/demux_generate_w.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/demux_generate_synth.png)
+### Loop 4 (rca.v )
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
