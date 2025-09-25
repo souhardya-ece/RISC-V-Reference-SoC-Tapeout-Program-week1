@@ -505,7 +505,7 @@ gtkwave tb_blocking_caveat.vcd
 
 ## Day 5
 ### Optimization in synthesis
-if is priority logic(mux). Bad coding will lead to a inferrd latch(incomplete if).
+if is priority logic(mux:-2:1). Bad coding will lead to a inferrd latch(incomplete if).In case statement(mux:-4:1) the variable in register type. In complete case also will lead to infarred latch. use default
 
 
 
