@@ -589,8 +589,7 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
 ### Output
-![image alt]()
-![image alt]()
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/partial_case_assign_synth.png)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -678,8 +677,7 @@ iverilog fa.v rca.v tb_rca.v
 gtkwave tb_rca.vcd
 ```
 ### Output
-![image alt]()
-![image alt]()
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/rca_w.png)
 
 
 
