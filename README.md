@@ -503,6 +503,9 @@ gtkwave tb_blocking_caveat.vcd
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/c_synth.png)
 ![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day4/Images/C_gls.png)
 
+## Day 5
+### Optimization in synthesis
+if is priority logic(mux). Bad coding will lead to a inferrd latch(incomplete if).
 
 
 
