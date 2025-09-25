@@ -431,7 +431,7 @@ to verify and also the timing requirement is met(delay annotation) of the netlis
 Now in case of GLS using iverilog we fed the netlist,gate level verilog model(what is the meaning of and or that we tell to the simulator),test bench to the simulator. it will generate a .vcd file then we move to the gtkwave.
 Gate level model have two type one is timing aware(functional+time) and the another one is functonal.
 There are some reason at which synthesis simulation mismatch occur there are missing sensitivity list(use always@(*)),blk and non blk assignment(= <=),non standared verilog coding
-
+Do rtl coding carefully ow it have some mismatch.
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -470,7 +470,24 @@ iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd
 ./a.out
 gtkwave tb_bad_mux.vcd
 ```
-
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+iverilog blocking_caveat.v tb_blocking_caveat.v
+./a.out
+gtkwave tb_blocking_caveat.vcd
+yosys
+//read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib   //optional
+read_verilog blocking_caveat.v
+synth -top  blocking_caveat
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+write_verilog -noattr  blocking_caveat_net.v
+show
+iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd_sc_hd.v blocking_caveat_net.v tb_blocking_caveat.v
+./a.out
+gtkwave tb_blocking_caveat.vcd
+```
 
 
 
