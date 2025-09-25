@@ -507,6 +507,7 @@ gtkwave tb_blocking_caveat.vcd
 ### Optimization in synthesis
 if(only one portion can be execute) is priority logic(mux:-2:1). Bad coding will lead to a inferrd latch(incomplete if).In case statement(execute one or more can be true)(mux:-4:1) the variable in register type. In complete case also will lead to infarred latch(o/p connedted to i/p). use default.
 
+### If and Case Statement
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -593,6 +594,61 @@ iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd
 ./a.out
 gtkwave tb_bad_case.vcd
 ```
+### Looping Construct
+There are two types of loop one is for loop(inside always,evaluating exp) and the another one is for or if generate loop(outside always,instantiating or replication of hw).you can write it for any no of mux & demux.
+
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+gvim mux_generate.v
+iverilog mux_generate.v tb_mux_generate.v
+./a.out
+gtkwave tb_mux_generate.vcd
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+read_verilog mux_generate.v
+synth -top  mux_generate
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+iverilog demux_case.v tb_demux_case.v
+./a.out
+gtkwave tb_demux_case.vcd
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+read_verilog demux_case.v
+synth -top  demux_case
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+iverilog demux_generate.v tb_demux_generate.v
+./a.out
+gtkwave tb_demux_generate.vcd
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+read_verilog demux_generate.v
+synth -top  demux_generate
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+iverilog fa.v rca.v tb_rca.v
+./a.out
+gtkwave tb_rca.vcd
+```
+
 
 
 
