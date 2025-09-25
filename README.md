@@ -430,8 +430,31 @@ show
 to verify and also the timing requirement is met(delay annotation) of the netlist we invoke the netlist and the test bench to the simulator.
 Now in case of GLS using iverilog we fed the netlist,gate level verilog model(what is the meaning of and or that we tell to the simulator),test bench to the simulator. it will generate a .vcd file then we move to the gtkwave.
 Gate level model have two type one is timing aware(functional+time) and the another one is functonal.
+There are some reason at which synthesis simulation mismatch occur there are missing sensitivity list(use always@(*)),blk and non blk assignment(= <=),non standared verilog coding
 
+```
+cd VLSI
+cd sky130RTLDesignAndSynthesisWorkshop
+cd verilog_files
+gvim ternary_operator_mux.v -o bad_mux.v -o good_mux.v
+iverilog ternary_operator_mux.v tb_ternary_operator_mux.v
+./a.out
+gtkwave tb_ternary_operator_mux.vcd
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog ternary_operator_mux.v
+synth -top ternary_operator_mux
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+write_verilog -noattr ternary_operator_mux_net.v
+show
+iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_operator_mux.v
+./a.out
+gtkwave tb_ternary_operator_mux.vcd
+```
 
+```
+
+```
 
 
 
