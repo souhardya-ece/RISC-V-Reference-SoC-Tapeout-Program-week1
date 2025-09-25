@@ -522,6 +522,9 @@ synth -top  incomp_if
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/incomp_if_w.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/incomp_if_synth.png)
 
 ```
 cd VLSI
@@ -537,6 +540,9 @@ synth -top  incomp_if2
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/incomp_if2_w.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/incomp_if2_synth.png)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -551,6 +557,9 @@ synth -top  incomp_case
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/incomp_case_w.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/incomp_case_synth.png)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -565,6 +574,9 @@ synth -top  comp_case
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/comp_case_w.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/comp_case_synth.png)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -576,6 +588,9 @@ synth -top  partial_case_assign
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt]()
+![image alt]()
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -594,6 +609,10 @@ iverilog ../my_lib/verilog_model/primitives.v  ../my_lib/verilog_model/sky130_fd
 ./a.out
 gtkwave tb_bad_case.vcd
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/bad_case_w.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/bad_case_synth.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/bad_case_gls.png)
 ### Looping Construct
 There are two types of loop one is for loop(inside always,evaluating exp) and the another one is for or if generate loop(outside always,instantiating or replication of hw).you can write it for any no of mux & demux.
 
@@ -612,6 +631,10 @@ synth -top  mux_generate
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/mux_generate.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/mux_generate_w.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/mux_generate_synth.png)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -626,6 +649,9 @@ synth -top  demux_case
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/demux_case_w.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/demux_case_synth.png)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -640,6 +666,9 @@ synth -top  demux_generate
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+### Output
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/demux_generate_w.png)
+![image alt](https://github.com/souhardya-ece/RISC-V-Reference-SoC-Tapeout-Program-week1/blob/main/Day5/Images/demux_generate_synth.png)
 ```
 cd VLSI
 cd sky130RTLDesignAndSynthesisWorkshop
@@ -648,6 +677,9 @@ iverilog fa.v rca.v tb_rca.v
 ./a.out
 gtkwave tb_rca.vcd
 ```
+### Output
+![image alt]()
+![image alt]()
 
 
 
